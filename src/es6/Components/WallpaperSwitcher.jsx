@@ -11,14 +11,14 @@ function getWallpapers() {
   let _wallpapers = undefined;
 
   if (window.debug === true) {
-    _wallpapers = ['1.png', '2.jpg', '3.png'];
+    _wallpapers = ['wallpaper.pnt', '1.png', '2.jpg', '3.png'];
   } else {
     let wallpapersDirectory = window.config.get_str("branding", "background_images");
 
     // Do NOT allow the default wallpaper directory to set, as this will prevent the default provided backgrounds from 
     // being used 100% of the time in a stock install.
     if (wallpapersDirectory == "/usr/share/backgrounds" || wallpapersDirectory == "/usr/share/backgrounds/") {
-      wallpapersDirectory = "/usr/share/lightdm-webkit/themes/lightdm-webkit-theme-blackarch/src/img/wallpapers/";
+      wallpapersDirectory = "/usr/share/lightdm-webkit/themes/blackarch-webkit-theme/src/img/wallpapers/";
     }
 
     _wallpapers = window.greeterutil.dirlist(wallpapersDirectory);

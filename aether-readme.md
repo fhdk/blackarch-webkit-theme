@@ -70,9 +70,9 @@ sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-web
 
 ### **Setting an Avatar Image**
 
-![](img/default-user.png)
+![](src/img/default-user.png)
 
-Once LightDM, LightDM Webkit Greeter, and Aether are installed you will need to set an avatar image for your users. Size is irrelevant, and avatars will be displayed as a 125x125 circle (Yes, square images too). Users that don't have an avatar set will default to the [astronaut](img/default-user.png).
+Once LightDM, LightDM Webkit Greeter, and Aether are installed you will need to set an avatar image for your users. Size is irrelevant, and avatars will be displayed as a 125x125 circle (Yes, square images too). Users that don't have an avatar set will default to the [astronaut](src/img/default-user.png).
 
 To accomplish this, you can do either of the following:
 - Create an image in your home directory named `.face`.
