@@ -9,13 +9,14 @@ arch=('any')
 url="https://github.com/fhdk/blackarch-webkit-theme"
 license=('MIT GPL2')
 depends=('lightdm' 'webkit2gtk>=2.12' 'accountsservice')
-install='blackarch-webkit-theme.install'
+install='blackarch.install'
 changelog='changelog.txt'
-source=(git+$url#branch=$_branch)
-md5sums=('SKIP')
+source=(git+$url#branch=$_branch
+        lightdm-webkit2-greeter.conf)
+md5sums=('SKIP' 'SKIP')
 package() {
   cd "$pkgdir"
-  mkdir -p usr/share/lightdm-webkit/themes/blackarch
-  cd usr/share/lightdm-webkit/themes/blackarch
-  cp --recursive "$srcdir/blackarch-webkit-theme/package" "blackarch"
+  mkdir -p usr/share/lightdm-webkit/themes/
+  cd usr/share/lightdm-webkit/themes/
+  cp --recursive "$srcdir/blackarch-webkit-theme/package/" "$pkgdir"
 }
