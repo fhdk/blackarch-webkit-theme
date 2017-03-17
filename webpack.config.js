@@ -2,7 +2,7 @@ module.exports = {
   "entry": "./src/es6/Main.jsx",
   "output": {
     "path": "./src/js",
-    "filename": "Aether.js"
+    "filename": "ba-theme.js"
   },
   "module": {
     "loaders": [
