@@ -1,0 +1,38 @@
+pre_install() {
+exit 0
+}
+
+post_install() {
+  echo "Setting Blackarch as your default login theme."
+
+  # These do not work, as values after the comment symbol are still parsed by both of these.
+  #sed -i 's/^webkit-theme\s*=\s*\(.*\)/webkit-theme = blackarch-webkit-theme #\1/g' etc/lightdm/lightdm-webkit2-greeter.conf
+  #sed -i 's/^\(#\?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1 #\2/g' etc/lightdm/lightdm.conf
+
+  #sed -i 's/^webkit-theme.*/webkit-theme = blackarch-webkit-theme/g' etc/lightdm/lightdm-webkit2-greeter.conf
+  #sed -i 's/^#\?greeter-session.*/greeter-session = lightdm-webkit2-greeter/g' etc/lightdm/lightdm.conf
+
+}
+
+pre_upgrade() {
+exit 0
+}
+
+post_upgrade() {
+exit 0
+}
+
+pre_remove() {
+exit 0
+}
+
+post_remove() {
+  echo "Resetting default login theme."
+
+  # These do not work, as values after the comment symbol are still parsed by both of these.
+  #sed -i 's/^webkit-theme.\+#\(.\+\)/webkit-theme = \1/g' etc/lightdm/lightdm-webkit2-greeter.conf
+  #sed -i 's/^greeter-session\+*#\(\+*\)\s#\(\+*\)\s/\1-session = \2/g' etc/lightdm/lightdm.conf
+
+  #sed -i 's/^webkit-theme.*/webkit-theme = manjaro-dark/g' etc/lightdm/lightdm-webkit2-greeter.conf
+}
+
