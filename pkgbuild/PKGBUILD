@@ -1,5 +1,5 @@
 # Maintainer: FH <fh | uex | dk>
-
+# Original
 _branch=master
 pkgname=blackarch-webkit-theme
 pkgver=1.0.0
@@ -7,16 +7,19 @@ pkgrel=1
 pkgdesc="A dark Blackarch lightdm-webkit-theme."
 arch=('any')
 url="https://github.com/fhdk/blackarch-webkit-theme"
-license=('MIT GPL2')
+license=('MIT' 'GPL2')
 depends=('lightdm' 'webkit2gtk>=2.12' 'accountsservice')
 install='blackarch.install'
 changelog='changelog.txt'
 source=(git+$url#branch=$_branch
-        lightdm-webkit2-greeter.conf)
-md5sums=('SKIP' 'SKIP')
+        'lightdm-webkit2-greeter.banew')
+md5sums=('SKIP'
+         '94f8ff70edb11bd8473414923fe43440')
 package() {
   cd "$pkgdir"
-  mkdir -p usr/share/lightdm-webkit/themes/
-  cd usr/share/lightdm-webkit/themes/
-  cp --recursive "$srcdir/blackarch-webkit-theme/package/" "$pkgdir"
+  mkdir -p etc/lightdm
+  cp "$srcdir/lightdm-webkit2-greeter.banew" "etc/lightdm/"
+  mkdir -p usr/share/lightdm-webkit/themes
+  cd usr/share/lightdm-webkit/themes
+  cp --recursive "$srcdir/blackarch-webkit-theme/blackarch/" "."
 }

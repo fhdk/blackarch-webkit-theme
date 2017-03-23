@@ -1,7 +1,7 @@
 pre_install() {
   echo "Backing up lightdm configuration"
-  cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.pacsave-ba
-  cp /etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/lightdm-webkit2-greeter.conf.pacsave-ba
+  cp -f /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.basave
+  mv -f /etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/lightdm-webkit2-greeter.conf.basave
 }
 
 post_install() {
@@ -13,7 +13,7 @@ post_install() {
 
   #sed -i 's/^webkit-theme.*/webkit-theme = blackarch/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   sed -i 's/^#\?greeter-session.*/greeter-session = lightdm-webkit2-greeter/g' /etc/lightdm/lightdm.conf
-  cp -f lightdm-webkit2-greeter.conf /etc/lightdm/
+  mv -f /etc/lightdm/lightdm-webkit2-greeter.banew /etc/lightdm/lightdm-webkit2-greeter.conf
 }
 
 pre_upgrade() {
@@ -35,7 +35,7 @@ post_remove() {
   #sed -i 's/^webkit-theme.\+#\(.\+\)/webkit-theme = \1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
   #sed -i 's/^greeter-session\+*#\(\+*\)\s#\(\+*\)\s/\1-session = \2/g' /etc/lightdm/lightdm.conf
 
-  mv -f /etc/lightdm/lightdm.conf.pacsave-ba /etc/lightdm/lightdm.conf
-  mv -f /etc/lightdm/lightdm-webkit2-greeter.conf.pacsave-ba /etc/lightdm/lightdm-webkit2-greeter.conf
+  mv -f /etc/lightdm/lightdm.conf.basave /etc/lightdm/lightdm.conf > /dev/null
+  mv -f /etc/lightdm/lightdm-webkit2-greeter.conf.basave /etc/lightdm/lightdm-webkit2-greeter.conf > /dev/null
 }
 
